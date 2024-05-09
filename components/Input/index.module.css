@@ -1,0 +1,97 @@
+.wrapper {
+  width: max-content;
+  height: auto;
+  display: flex;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.25rem 0.75rem;
+  border: var(--border-size) solid var(--border);
+  border-radius: 0.5rem;
+  transition: all 0.2s linear;
+  -webkit-transition: all 0.2s linear;
+}
+
+.wrapper.rounded {
+  border-radius: calc(((1rem * 1.5) + var(--border-size) + var(--border-size) + 0.75rem + 0.75rem) / 2);
+}
+
+.wrapper.flex {
+  width: 100%;
+}
+
+.wrapper.large {
+  padding: 0.5rem 0.75rem;
+}
+
+.wrapper.secondary {
+  border: var(--border-size) solid transparent;
+  background-color: var(--background-color2);
+}
+
+.wrapper.third {
+  background-color: var(--background-color);
+}
+
+.wrapper:focus-within,
+.wrapper:active {
+  border-color: var(--theme-primary);
+}
+
+.left,
+.right {
+  width: max-content;
+  height: auto;
+  display: flex;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+  pointer-events: none;
+}
+
+.wrapper:focus-within .left,
+.wrapper:focus-within .right,
+.wrapper:active .left,
+.wrapper:active .right {
+  color: var(--theme-primary);
+}
+
+.left svg,
+.right svg {
+  color: var(--font-color);
+}
+
+.input {
+  appearance: none;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  outline: 0;
+  border: 0;
+  width: 100%;
+  height: auto;
+  font-size: 1rem;
+  line-height: 1.5;
+  background-color: transparent;
+  color: var(--font-color);
+}
+
+/* Mobile */
+@media (max-width: 480px) {}
+
+/* Tablet */
+@media (min-width: 481px) and (max-width: 760px) {}
+
+/* Large tablet */
+@media (min-width: 761px) and (max-width: 1440px) {
+  .wrapper:hover {
+    opacity: 0.9;
+  }
+}
+
+/* Desktop */
+@media (min-width: 1441px) {
+  .wrapper:hover {
+    opacity: 0.9;
+  }
+}

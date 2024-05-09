@@ -1,0 +1,106 @@
+.field {
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.field.fit {
+  width: max-content;
+}
+
+.field .fieldTitle {
+  width: 100%;
+  height: auto;
+  display: flex;
+  position: relative;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1.25rem;
+  line-height: 1;
+  font-weight: 700;
+  text-transform: capitalize;
+}
+
+.field .fieldTitle[data-optional]::after {
+  content: attr(data-optional);
+  font-size: 0.75rem;
+  line-height: 1;
+  width: max-content;
+  height: auto;
+  position: absolute;
+  right: 0;
+  color: var(--font-color);
+  background-color: var(--border);
+  padding: 0.5rem 0.75rem;
+  border-radius: calc((0.75rem + 0.5rem + 0.5rem) / 2);
+}
+
+.field .iconInput {
+  width: 100%;
+  height: auto;
+  display: flex;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+}
+
+.field .description {
+  width: 100%;
+  height: auto;
+  display: flex;
+  position: relative;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 0.5rem;
+  color: var(--font-color2);
+  font-size: 1rem;
+}
+
+.field .description svg {
+  translate: 0 0.25rem;
+  scale: 1.25;
+  transform-origin: left center;
+}
+
+.field .description .content {
+  width: 100%;
+  height: auto;
+  font-size: 1rem;
+}
+
+.field .description p {
+  text-align: start;
+}
+
+.actions {
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: row-reverse;
+  position: relative;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.actions.column {
+  flex-direction: column;
+}
+
+/* Mobile */
+@media (max-width: 480px) {}
+
+/* Tablet */
+@media (min-width: 481px) and (max-width: 760px) {}
+
+/* Large tablet */
+@media (min-width: 761px) and (max-width: 1440px) {}
+
+/* Desktop */
+@media (min-width: 1441px) {}

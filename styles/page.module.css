@@ -1,0 +1,35 @@
+.wrapper {
+  width: 100%;
+  height: auto;
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+  .wrapper {
+    padding: 1.5rem var(--mobile-padding);
+  }
+}
+
+/* Tablet */
+@media (min-width: 481px) and (max-width: 760px) {
+  .wrapper {
+    padding: 1.5rem var(--tablet-padding);
+  }
+}
+
+/* Large tablet */
+@media (min-width: 761px) and (max-width: 1440px) {
+  .wrapper {
+    padding: 1.5rem 8vw;
+    padding: 1.5rem max(1.5rem, min((100% - 1000px) / 2, (100% - var(--large-tablet-padding)) / 2));
+  }
+}
+
+/* Desktop */
+@media (min-width: 1441px) {
+  .wrapper {
+    /* padding: 1.5rem calc((100% - var(--desktop-padding)) / 2); */
+    /* padding: 1.5rem min(0.5 * (100% - 1400px), 0.5 * (100% - var(--desktop-padding))); */
+    padding: 1.5rem min(0.5 * (100% - 1200px), 0.5 * (100% - var(--desktop-padding)));
+  }
+}

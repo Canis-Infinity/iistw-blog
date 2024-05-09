@@ -1,0 +1,109 @@
+.navigation {
+  width: 100%;
+  height: auto;
+  display: flex;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 3rem;
+  color: var(--font-color2);
+}
+
+.navigation a {
+  width: 100%;
+  height: auto;
+  display: flex;
+  position: relative;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 0.5rem;
+  border-radius: 0.5rem;
+  border: var(--border-size) solid var(--border);
+  cursor: pointer;
+}
+
+.navigation a.naviPrev {
+  padding: 1rem 1.25rem 1rem 0.75rem;
+}
+
+.navigation a.naviNext {
+  padding: 1rem 0.75rem 1rem 1.25rem;
+}
+
+.navigation a .icon {
+  width: max-content;
+  max-width: 2rem;
+  height: auto;
+  max-height: 2rem;
+  display: flex;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+  font-size: 3rem;
+  line-height: 1;
+}
+
+.navigation a .icon svg {
+  flex-shrink: 0;
+}
+
+.navigation a .naviInfo {
+  width: 100%;
+  height: auto;
+  display: grid;
+  position: relative;
+  gap: 0.75rem;
+}
+
+.navigation a .naviInfo .content,
+.navigation a .naviInfo .title {
+  line-height: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.navigation a .naviInfo .content {
+  font-size: 1rem;
+}
+
+.navigation a .naviInfo .title {
+  font-size: 0.75rem;
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+  .navigation {
+    flex-direction: column;
+  }
+
+  .navigation a .naviInfo .content {
+    font-size: 1.25rem;
+  }
+
+  .navigation a .naviInfo .title {
+    font-size: 1rem;
+  }
+}
+
+/* Tablet */
+@media (min-width: 481px) and (max-width: 760px) {
+  .navigation {
+    flex-direction: column;
+  }
+
+  .navigation a .naviInfo .content {
+    font-size: 1.25rem;
+  }
+
+  .navigation a .naviInfo .title {
+    font-size: 1rem;
+  }
+}
+
+/* Large tablet */
+@media (min-width: 761px) and (max-width: 1440px) {}
+
+/* Desktop */
+@media (min-width: 1441px) {}

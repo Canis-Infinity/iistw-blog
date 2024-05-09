@@ -1,0 +1,409 @@
+.wrapper {
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  justify-content: flex-start;
+  align-items: flex-start;
+  overflow: auto;
+}
+
+.wrapper::-webkit-scrollbar {
+  width: 0.4rem;
+  height: 0.4rem;
+}
+
+.wrapper::-webkit-scrollbar-corner {
+  background-color: var(--scrollbar-track);
+  border-bottom-right-radius: 0.5rem;
+}
+
+.wrapper::-webkit-scrollbar-track {
+  border-radius: 0.5rem;
+  background-color: var(--scrollbar-track);
+}
+
+.wrapper::-webkit-scrollbar-thumb {
+  border-radius: 0.5rem;
+  background-color: var(--scrollbar-thumb);
+}
+
+.wrapper::-webkit-scrollbar-thumb:hover {
+  border-radius: 0.5rem;
+  background-color: var(--scrollbar-thumb-hover);
+}
+
+.wrapper div.noData {
+  width: 100%;
+  height: auto;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  font-size: 1rem;
+  line-height: 1;
+  opacity: 0.5;
+}
+
+.wrapper div.noData svg {
+  font-size: 3rem;
+}
+
+.wrapper div.noData.loading svg {
+  -webkit-animation: svg-rotate 1s linear infinite;
+  animation: svg-rotate 1s linear infinite;
+}
+
+@keyframes svg-rotate {
+  from {
+    -webkit-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+
+  to {
+    -webkit-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+@-webkit-keyframes svg-rotate {
+  from {
+    -webkit-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+
+  to {
+    -webkit-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+@-moz-keyframes svg-rotate {
+  from {
+    -webkit-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+
+  to {
+    -webkit-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+@-o-keyframes svg-rotate {
+  from {
+    -webkit-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+
+  to {
+    -webkit-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+.wrapper table,
+.wrapper .table {
+  width: 100%;
+  height: auto;
+  display: table;
+  border-collapse: collapse;
+  font-size: 1rem;
+  color: var(--font-color);
+}
+
+.wrapper .table .thead {
+  display: table-header-group;
+}
+
+.wrapper .table .tbody {
+  display: table-row-group;
+}
+
+.wrapper .table .tfoot {
+  display: table-footer-group;
+}
+
+.wrapper .table .thead .tr,
+.wrapper .table .tbody .tr,
+.wrapper .table .tfoot .tr {
+  display: table-row;
+}
+
+.wrapper .table .thead .tr .th,
+.wrapper .table .tbody .tr .td,
+.wrapper .table .tfoot .tr .th {
+  display: table-cell;
+}
+
+.wrapper table thead,
+.wrapper .table .thead {
+  border-bottom: 3px solid var(--table-border);
+}
+
+.wrapper table thead tr,
+.wrapper table tbody tr,
+.wrapper table tfoot tr,
+.wrapper .table .thead .tr,
+.wrapper .table .tbody .tr,
+.wrapper .table .tfoot .tr {
+  position: relative;
+}
+
+.wrapper table thead tr th,
+.wrapper table tbody tr td,
+.wrapper table tfoot tr th,
+.wrapper .table .thead .tr .th,
+.wrapper .table .tbody .tr .td,
+.wrapper .table .tfoot .tr .th {
+  position: relative;
+  line-height: 1.5;
+}
+
+.wrapper table tbody tr td.subject,
+.wrapper .table .tbody .tr .td.subject {
+  border-right: 2px solid var(--table-border);
+}
+
+.wrapper table thead tr th.isFixed,
+.wrapper table tbody tr td.isFixed,
+.wrapper .table .thead .tr .th.isFixed,
+.wrapper .table .tbody .tr .td.isFixed {
+  position: sticky;
+  left: 0;
+  z-index: 1;
+}
+
+.wrapper table tfoot,
+.wrapper .table .tfoot {
+  border-top: 1px solid var(--table-border);
+}
+
+.wrapper table.selectable tbody tr,
+.wrapper table tbody tr.selectable,
+.wrapper .table.selectable .tbody .tr,
+.wrapper .table .tbody .tr.selectable {
+  cursor: pointer;
+}
+
+.wrapper table thead tr th,
+.wrapper table tbody tr td,
+.wrapper table tfoot tr th,
+.wrapper .table .thead .tr .th,
+.wrapper .table .tbody .tr .td,
+.wrapper .table .tfoot .tr .th {
+  position: relative;
+  padding: 0.5rem 1rem;
+  vertical-align: middle;
+  transition: all 0.2s linear;
+  -webkit-transition: all 0.2s linear;
+}
+
+.wrapper table.relaxed thead tr th,
+.wrapper table.relaxed tbody tr td,
+.wrapper table.relaxed tfoot tr th,
+.wrapper .table.relaxed .thead .tr .th,
+.wrapper .table.relaxed .tbody .tr .td,
+.wrapper .table.relaxed .tfoot .tr .th {
+  padding: 1rem 1rem;
+}
+
+.wrapper table.narrow thead tr th,
+.wrapper table.narrow tbody tr td,
+.wrapper table.narrow tfoot tr th,
+.wrapper .table.narrow .thead .tr .th,
+.wrapper .table.narrow .tbody .tr .td,
+.wrapper .table.narrow .tfoot .tr .th {
+  padding: 0.25rem 1rem;
+}
+
+.wrapper table thead tr th,
+.wrapper table tbody tr td,
+.wrapper .table .thead .tr .th,
+.wrapper .table .tbody .tr .td {
+  background-color: var(--tbody);
+}
+
+.wrapper table tbody tr:hover td,
+.wrapper .table .tbody .tr:hover .td {
+  background-color: var(--tr-hover);
+}
+
+.wrapper table thead tr th.alignLeft,
+.wrapper table tbody tr td.alignLeft,
+.wrapper table tfoot tr th.alignLeft,
+.wrapper .table .thead .tr .th.alignLeft,
+.wrapper .table .tbody .tr .td.alignLeft,
+.wrapper .table .tfoot .tr .th.alignLeft {
+  text-align: start !important;
+}
+
+.wrapper table thead tr th.alignCenter,
+.wrapper table tbody tr td.alignCenter,
+.wrapper table tfoot tr th.alignCenter,
+.wrapper .table .thead .tr .th.alignCenter,
+.wrapper .table .tbody .tr .td.alignCenter,
+.wrapper .table .tfoot .tr .th.alignCenter {
+  text-align: center !important;
+}
+
+.wrapper table thead tr th.alignCenter .actions,
+.wrapper table tbody tr td.alignCenter .actions,
+.wrapper table tfoot tr th.alignCenter .actions,
+.wrapper .table .thead .tr .th.alignCenter .actions,
+.wrapper .table .tbody .tr .td.alignCenter .actions,
+.wrapper .table .tfoot .tr .th.alignCenter .actions {
+  margin: auto;
+}
+
+.wrapper table thead tr th.alignRight,
+.wrapper table tbody tr td.alignRight,
+.wrapper table tfoot tr th.alignRight,
+.wrapper .table .thead .tr .th.alignRight,
+.wrapper .table .tbody .tr .td.alignRight,
+.wrapper .table .tfoot .tr .th.alignRight {
+  text-align: end !important;
+}
+
+.wrapper table thead tr th.fit,
+.wrapper table tbody tr td.fit,
+.wrapper table tfoot tr th.fit,
+.wrapper .table .thead .tr .th.fit,
+.wrapper .table .tbody .tr .td.fit,
+.wrapper .table .tfoot .tr .th.fit {
+  width: 1%;
+}
+
+.wrapper table thead tr th.nowrap,
+.wrapper table tbody tr td.nowrap,
+.wrapper table tfoot tr th.nowrap,
+.wrapper .table .thead .tr .th.nowrap,
+.wrapper .table .tbody .tr .td.nowrap,
+.wrapper .table .tfoot .tr .th.nowrap {
+  white-space: nowrap;
+}
+
+.wrapper table tbody tr td.increase,
+.wrapper .table .tbody .tr .td.increase {
+  color: var(--increase);
+}
+
+.wrapper table tbody tr td.decrease,
+.wrapper .table .tbody .tr .td.decrease {
+  color: var(--decrease);
+}
+
+.wrapper table tbody tr td.isEmpty,
+.wrapper .table .tbody .tr .td.isEmpty {
+  color: var(--gray-7);
+  font-weight: 600;
+}
+
+.wrapper table tbody tr td.isEmpty::after,
+.wrapper .table .tbody .tr .td.isEmpty::after {
+  content: '-';
+  opacity: 0.8;
+}
+
+.wrapper table.striped thead tr th,
+.wrapper table.striped tbody tr td.subject,
+.wrapper .table.striped .thead .tr .th,
+.wrapper .table.striped .tbody .tr .td.subject {
+  background-color: var(--striped-thead);
+}
+
+.wrapper table tbody tr td.subject,
+.wrapper .table .tbody .tr .td.subject {
+  font-weight: bold;
+}
+
+.wrapper table thead tr th.mono,
+.wrapper table tbody tr td.mono,
+.wrapper table tfoot tr th.mono,
+.wrapper .table .thead .tr .th.mono,
+.wrapper .table .tbody .tr .td.mono,
+.wrapper .table .tfoot .tr .th.mono {
+  text-align: end;
+  font-family: var(--mono-font);
+}
+
+.wrapper table.headerFixed thead tr th:first-child,
+.wrapper table.headerFixed tbody tr td:first-child,
+.wrapper table.headerFixed tfoot tr th:first-child,
+.wrapper .table.headerFixed .thead .tr .th:first-child,
+.wrapper .table.headerFixed .tbody .tr .td:first-child,
+.wrapper .table.headerFixed .tfoot .tr .th:first-child {
+  position: sticky;
+  left: 0;
+  z-index: 1;
+}
+
+.actions {
+  width: max-content;
+  height: auto;
+  display: flex;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.primary:active  {
+  color: var(--theme-primary) !important;
+}
+
+.warning:active  {
+  color: var(--red) !important;
+}
+
+.success:active  {
+  color: var(--green) !important;
+}
+
+/* Mobile */
+@media (max-width: 480px) {}
+
+/* Tablet */
+@media (min-width: 481px) and (max-width: 760px) {}
+
+/* Large tablet */
+@media (min-width: 761px) and (max-width: 1440px) {
+  .primary:hover  {
+    color: var(--theme-primary) !important;
+  }
+
+  .warning:hover  {
+    color: var(--red) !important;
+  }
+
+  .success:hover  {
+    color: var(--green) !important;
+  }
+}
+
+/* Desktop */
+@media (min-width: 1441px) {
+  .primary:hover  {
+    color: var(--theme-primary) !important;
+  }
+
+  .warning:hover  {
+    color: var(--red) !important;
+  }
+
+  .success:hover  {
+    color: var(--green) !important;
+  }
+}

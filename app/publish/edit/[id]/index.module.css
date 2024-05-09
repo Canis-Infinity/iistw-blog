@@ -1,0 +1,63 @@
+.form {
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.snippets {
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-wrap: wrap;
+  position: relative;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 0.25rem;
+}
+
+.alertTypeGrid {
+  width: 100%;
+  height: auto;
+  display: grid;
+  position: relative;
+  padding-left: 0;
+  list-style-position: inside;
+}
+
+.alertTypeGrid li {
+  width: 100%;
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+  .alertTypeGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Tablet */
+@media (min-width: 481px) and (max-width: 760px) {
+  .alertTypeGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Large tablet */
+@media (min-width: 761px) and (max-width: 1440px) {
+  .alertTypeGrid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* Desktop */
+@media (min-width: 1441px) {
+  .alertTypeGrid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}

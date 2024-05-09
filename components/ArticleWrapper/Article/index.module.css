@@ -1,0 +1,362 @@
+.wrapper {
+  width: 100%;
+  height: auto;
+  display: flex;
+  position: relative;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 1.5rem;
+  overflow: hidden;
+  padding: 1.5rem 0;
+  transition: opacity 0.2s linear;
+  -webkit-transition: opacity 0.2s linear;
+}
+
+.wrapper:not(:first-child) {
+  border-top: 1px solid var(--border);
+}
+
+.hide {
+  opacity: 0;
+}
+
+.slider {
+  animation: slider 0.3s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+  -webkit-animation: slider 0.3s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+}
+
+@keyframes slider {
+  0% {
+    opacity: 0;
+    scale: 0.9;
+    transform: translateY(3rem);
+  }
+
+  100% {
+    opacity: 1;
+    scale: 1;
+    transform: translateY(0);
+  }
+}
+
+@-webkit-keyframes slider {
+  0% {
+    opacity: 0;
+    scale: 0.9;
+    transform: translateY(3rem);
+  }
+
+  100% {
+    opacity: 1;
+    scale: 1;
+    transform: translateY(0);
+  }
+}
+
+@-moz-keyframes slider {
+  0% {
+    opacity: 0;
+    scale: 0.9;
+    transform: translateY(3rem);
+  }
+
+  100% {
+    opacity: 1;
+    scale: 1;
+    transform: translateY(0);
+  }
+}
+
+@-o-keyframes slider {
+  0% {
+    opacity: 0;
+    scale: 0.9;
+    transform: translateY(3rem);
+  }
+
+  100% {
+    opacity: 1;
+    scale: 1;
+    transform: translateY(0);
+  }
+}
+
+.cover {
+  height: auto;
+  display: flex;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  border-radius: 0.5rem;
+}
+
+.cover img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform-origin: center center;
+  transition: all 0.2s linear;
+  -webkit-transition: all 0.2s linear;
+}
+
+.wrapper:hover .cover img {
+  scale: 1.1;
+  transform-origin: center center;
+}
+
+.loading {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  top: 0;
+  left: 0;
+  background-color: var(--background-color2);
+  color: var(--font-color2);
+}
+
+.spinner {
+  width: 2rem;
+  height: 2rem;
+  aspect-ratio: 1 / 1;
+  -webkit-animation: svg-rotate 1s linear infinite;
+  animation: svg-rotate 1s linear infinite;
+  opacity: 0.5;
+}
+
+.spinner svg {
+  font-size: 2rem;
+  line-height: 1;
+}
+
+@keyframes svg-rotate {
+  from {
+    -webkit-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+
+  to {
+    -webkit-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+@-webkit-keyframes svg-rotate {
+  from {
+    -webkit-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+
+  to {
+    -webkit-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+@-moz-keyframes svg-rotate {
+  from {
+    -webkit-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+
+  to {
+    -webkit-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+@-o-keyframes svg-rotate {
+  from {
+    -webkit-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+
+  to {
+    -webkit-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+.info {
+  width: 100%;
+  height: auto;
+  display: grid;
+  position: relative;
+  gap: 0.5rem;
+}
+
+.datetime {
+  grid-area: datetime;
+  font-size: 1rem;
+  line-height: 1;
+  font-family: var(--mono-font);
+  color: var(--font-color2);
+}
+
+.title {
+  grid-area: title;
+  color: var(--font-color);
+  transition: all 0.2s linear;
+  -webkit-transition: all 0.2s linear;
+}
+
+.wrapper:hover .title {
+  text-decoration: underline;
+}
+
+.intro {
+  grid-area: intro;
+  color: var(--font-color2);
+  /* 限制三行 */
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.tags {
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-wrap: wrap;
+  position: relative;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 0.5rem;
+  grid-area: tags;
+  margin-top: 0.5rem;
+}
+
+.tag {
+  width: max-content;
+  height: auto;
+  display: flex;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+  font-size: 0.75rem;
+  color: var(--font-color);
+  line-height: 1;
+  gap: 0.5rem;
+  background-color: var(--hover);
+  padding: 0.5rem 0.75rem;
+  border-radius: calc((0.5rem + 0.5rem + 0.75rem) / 2);
+  cursor: default;
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  white-space: nowrap;
+  transition: all 0.2s linear;
+  -webkit-transition: all 0.2s linear;
+}
+
+.tag svg {
+  scale: 1.25;
+  transform-origin: left center;
+}
+
+.views {
+  background-color: var(--theme-primary);
+  color: var(--gray-3);
+}
+
+/* Small Mobile */
+@media (max-width: 320px) {
+  .cover {
+    display: none;
+  }
+
+  .info {
+    grid-template-areas:
+      'title'
+      'intro'
+      'datetime'
+      'tags';
+  }
+}
+
+/* Mobile */
+@media (min-width: 321px) and (max-width: 480px) {
+  .cover {
+    display: none;
+  }
+
+  /* .cover {
+    min-width: 6rem;
+    height: 6rem;
+    aspect-ratio: 1 / 1;
+  } */
+
+  .info {
+    grid-template-areas:
+      'title'
+      'intro'
+      'datetime'
+      'tags';
+  }
+}
+
+/* Tablet */
+@media (min-width: 481px) and (max-width: 760px) {
+  .cover {
+    min-width: 6rem;
+    height: 6rem;
+    aspect-ratio: 1 / 1;
+  }
+
+  .info {
+    grid-template-areas:
+      'title'
+      'intro'
+      'datetime'
+      'tags';
+  }
+}
+
+/* Large tablet */
+@media (min-width: 761px) and (max-width: 1440px) {
+  .cover {
+    width: 350px;
+    max-width: 35%;
+    aspect-ratio: 3 / 2;
+  }
+
+  .info {
+    grid-template-areas:
+      'datetime'
+      'title'
+      'intro'
+      'tags';
+  }
+}
+
+/* Desktop */
+@media (min-width: 1441px) {
+  .cover {
+    width: 350px;
+    max-width: 35%;
+    aspect-ratio: 16 / 9;
+  }
+
+  .info {
+    grid-template-areas:
+      'datetime'
+      'title'
+      'intro'
+      'tags';
+  }
+}

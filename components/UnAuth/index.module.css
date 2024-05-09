@@ -1,0 +1,50 @@
+.wrapper {
+  width: 100%;
+  height: auto;
+  min-height: 60vh;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.wrapper svg {
+  font-size: 5rem;
+}
+
+.wrapper h2,
+.wrapper p {
+  text-align: center;
+  max-width: 90vw;
+}
+
+.wrapper a {
+  color: var(--theme-primary);
+  text-decoration: underline;
+}
+
+.wrapper a:hover {
+  opacity: 0.9;
+}
+
+.wrapper a:active {
+  opacity: 0.8;
+}
+
+.button {
+  margin-top: 0.5rem;
+}
+
+/* Mobile */
+@media (max-width: 480px) {}
+
+/* Tablet */
+@media (min-width: 481px) and (max-width: 760px) {}
+
+/* Large tablet */
+@media (min-width: 761px) and (max-width: 1440px) {}
+
+/* Desktop */
+@media (min-width: 1441px) {}

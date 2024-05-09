@@ -1,0 +1,20 @@
+.title {
+  font-size: 1.5rem;
+  line-height: 1;
+  font-weight: 700;
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+}
+
+/* Mobile */
+@media (max-width: 480px) {}
+
+/* Tablet */
+@media (min-width: 481px) and (max-width: 760px) {}
+
+/* Large tablet */
+@media (min-width: 761px) and (max-width: 1440px) {}
+
+/* Desktop */
+@media (min-width: 1441px) {}

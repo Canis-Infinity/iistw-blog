@@ -1,0 +1,79 @@
+.pagination {
+  width: 100%;
+  height: auto;
+  display: flex;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+}
+
+.pagination ul {
+  width: max-content;
+  height: auto;
+  display: flex;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  padding-left: 0;
+}
+
+.pagination ul li {
+  width: max-content;
+  min-width: calc(1rem + 0.5rem + 0.5rem);
+  height: auto;
+  min-height: calc(1rem + 0.5rem + 0.5rem);
+  display: flex;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+  font-size: 1rem;
+  line-height: 1;
+  padding: 0.5rem;
+  /* border-radius: 0.5rem; */
+  border-radius: calc((1rem + 0.5rem + 0.5rem) / 2);
+  background-color: var(--background-color);
+  color: var(--font-color);
+  cursor: pointer;
+  user-select: none;
+  -ms-user-select: none;
+  -moz-user-select: none;
+  transition: all 0.2s linear;
+  -webkit-transition: all 0.2s linear;
+}
+
+.pagination ul li.disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+
+.pagination ul li.active {
+  background-color: var(--theme-primary);
+  color: var(--gray-3);
+}
+
+.pagination ul li:not(.disabled, .active):hover,
+.pagination ul li:not(.disabled, .active):active {
+  background-color: var(--hover);
+  color: var(--font-color);
+}
+
+.pagination ul li:not(.disabled):hover {
+  opacity: 0.9;
+}
+
+.pagination ul li:not(.disabled):active {
+  opacity: 0.8;
+}
+
+/* Mobile */
+@media (max-width: 480px) {}
+
+/* Tablet */
+@media (min-width: 481px) and (max-width: 760px) {}
+
+/* Large tablet */
+@media (min-width: 761px) and (max-width: 1440px) {}
+
+/* Desktop */
+@media (min-width: 1441px) {}
