@@ -39,7 +39,7 @@ export default function Register() {
 
   const submitToast = useRef(null);
 
-  const handleLogin = (event) => {
+  const handleRegister = (event) => {
     event.preventDefault();
     setBtnDisabled(true);
     submitToast.current = toast.loading('註冊中', {...defaultProps});
@@ -138,7 +138,7 @@ export default function Register() {
             content={btnDisabled ? "註冊中" : "註冊"}
             size="large"
             width="relaxed"
-            onClick={handleLogin}
+            onClick={handleRegister}
             disabled={btnDisabled}
           />
           <Button

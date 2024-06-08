@@ -13,7 +13,7 @@ export const metadata = {
   metadataBase: new URL('https://blog.iistw.com'),
   title: '部落格｜Infinity 資訊',
   description: '這是我的部落格，我會不定期在這裡分享自己的學習歷程、見聞等等',
-  manifest: "/manifest.json",
+  manifest: "https://blog.iistw.com/manifest.json",
   keywords: [
     '部落格｜Infinity 資訊',
     '電腦',
