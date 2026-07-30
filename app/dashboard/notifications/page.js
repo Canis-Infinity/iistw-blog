@@ -1,4 +1,5 @@
 'use client';
+import { API_BASE_URL } from '@/lib/config';
 import { useState, useEffect, useCallback } from 'react';
 import { useTheme } from 'next-themes';
 import Link from 'next/link';
@@ -87,7 +88,7 @@ export default function Notifications() {
     if (!userData.token) return;
     setIsLoading(true);
     axios
-      .get(`${process.env.baseUrl}/api/blog/noti?type=${activeTab}&page=${page}`, {
+      .get(`${API_BASE_URL}/api/blog/noti?type=${activeTab}&page=${page}`, {
         headers: {
           Authorization: userData.token,
         },
@@ -120,7 +121,7 @@ export default function Notifications() {
 
   const handleMarkAllAsRead = () => {
     axios
-      .patch(`${process.env.baseUrl}/api/blog/noti`, null, {
+      .patch(`${API_BASE_URL}/api/blog/noti`, null, {
         headers: {
           Authorization: userData.token,
         },
@@ -185,7 +186,7 @@ export default function Notifications() {
                         </div>
                         <div className={styles.avatar}>
                           <Image
-                            src={`${process.env.baseUrl}${noti.avatar}`}
+                            src={`${API_BASE_URL}${noti.avatar}`}
                             alt={noti.from}
                             width={80}
                             height={80}

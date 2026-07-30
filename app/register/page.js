@@ -1,4 +1,5 @@
 'use client';
+import { API_BASE_URL } from '@/lib/config';
 import { useState, useRef } from 'react';
 import { useRouter } from 'next/navigation';
 import { useTheme } from 'next-themes';
@@ -46,7 +47,7 @@ export default function Register() {
     const formData = new FormData(formRef.current);
     const data = Object.fromEntries(formData);
     axios
-      .post(`${process.env.baseUrl}/api/blog/register`, formData).then((res) => {
+      .post(`${API_BASE_URL}/api/blog/register`, formData).then((res) => {
         if (res.status === 200) {
           toast.update(submitToast.current, { render: `${res.data.message}！將於三秒後跳轉至登入頁！`, type: "success", isLoading: false, ...defaultProps });
           localStorage.setItem('token', JSON.stringify(res.data));

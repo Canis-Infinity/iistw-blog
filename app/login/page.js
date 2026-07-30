@@ -1,4 +1,5 @@
 'use client';
+import { API_BASE_URL } from '@/lib/config';
 import { useState, useRef } from 'react';
 import { useRouter } from 'next/navigation';
 import { useTheme } from 'next-themes';
@@ -46,7 +47,7 @@ export default function Login() {
     const formData = new FormData(formRef.current);
     const data = Object.fromEntries(formData);
     axios
-      .post(`${process.env.baseUrl}/api/blog/login`, formData).then((res) => {
+      .post(`${API_BASE_URL}/api/blog/login`, formData).then((res) => {
         if (res.status === 200) {
           toast.update(submitToast.current, { render: `${res.data.message}！將於三秒後跳轉至首頁！`, type: "success", isLoading: false, ...defaultProps });
           Cookies.set('token', JSON.stringify(res.data));

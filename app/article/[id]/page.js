@@ -1,3 +1,4 @@
+import { API_BASE_URL } from '@/lib/config';
 import NoPost from '@/components/atricle/NoPost';
 import Wrapper from '@/components/atricle/Wrapper';
 import axios from 'axios';
@@ -9,7 +10,7 @@ export default async function Article({ params }) {
     return <NoPost />;
   }
 
-  const res = await axios.get(`${process.env.baseUrl}/api/blog/${id}`);
+  const res = await axios.get(`${API_BASE_URL}/api/blog/${id}`);
 
   const { message, data } = res.data;
 

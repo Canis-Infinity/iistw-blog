@@ -1,3 +1,4 @@
+import { API_BASE_URL } from '@/lib/config';
 import { useState, useRef, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
@@ -68,7 +69,7 @@ export default function Article({
       <div className={styles.cover}>
         {loading && <Loading />}
         <Image
-          src={cover ? `${process.env.baseUrl}${cover}` : '/image.png'}
+          src={cover ? `${API_BASE_URL}${cover}` : '/image.png'}
           alt="cover"
           width={960}
           height={540}

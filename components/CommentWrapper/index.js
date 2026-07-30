@@ -1,4 +1,5 @@
 'use client';
+import { API_BASE_URL } from '@/lib/config';
 
 import { useState, useEffect, useRef, useCallback } from 'react';
 import dynamic from 'next/dynamic';
@@ -35,7 +36,7 @@ export default function Publish({ theme, articleId, title, publisher }) {
 
   const handleFetchComment = useCallback(() => {
     axios
-      .get(`${process.env.baseUrl}/api/blog/comment/${articleId}`)
+      .get(`${API_BASE_URL}/api/blog/comment/${articleId}`)
       .then((res) => {
         if (res.status === 200) setCommentData(res.data.data);
       })
@@ -65,7 +66,7 @@ export default function Publish({ theme, articleId, title, publisher }) {
             const formData = new FormData();
             formData.append('file', file);
             axios
-              .post(`${process.env.baseUrl}/api/blog/upload`, formData, {
+              .post(`${API_BASE_URL}/api/blog/upload`, formData, {
                 headers: {
                   'Content-Type': 'multipart/form-data',
                   Authorization: userData.token,
@@ -95,7 +96,7 @@ export default function Publish({ theme, articleId, title, publisher }) {
     formData.append('content', text);
 
     axios
-      .post(`${process.env.baseUrl}/api/blog/comment`, formData, {
+      .post(`${API_BASE_URL}/api/blog/comment`, formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
           Authorization: userData.token,

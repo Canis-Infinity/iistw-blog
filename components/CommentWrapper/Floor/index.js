@@ -1,4 +1,5 @@
 'use client';
+import { API_BASE_URL } from '@/lib/config';
 
 import { useState, useEffect, useRef, useCallback } from 'react';
 import dynamic from 'next/dynamic';
@@ -62,7 +63,7 @@ export default function Floor({
             const formData = new FormData();
             formData.append('file', file);
             axios
-              .post(`${process.env.baseUrl}/api/blog/upload`, formData, {
+              .post(`${API_BASE_URL}/api/blog/upload`, formData, {
                 headers: {
                   'Content-Type': 'multipart/form-data',
                   Authorization: userData.token,
@@ -100,7 +101,7 @@ export default function Floor({
     formData.append('publisher', publisher);
 
     axios
-      .post(`${process.env.baseUrl}/api/blog/comment`, formData, {
+      .post(`${API_BASE_URL}/api/blog/comment`, formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
           Authorization: userData.token,

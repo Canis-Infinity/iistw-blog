@@ -1,4 +1,5 @@
 'use client';
+import { API_BASE_URL } from '@/lib/config';
 import { useState, useEffect, useRef, useCallback } from 'react';
 import { createPortal } from 'react-dom';
 import { useTheme } from 'next-themes';
@@ -149,7 +150,7 @@ export default function Publish() {
           const formData = new FormData();
           formData.append('file', file);
           axios
-            .post(`${process.env.baseUrl}/api/blog/upload`, formData, {
+            .post(`${API_BASE_URL}/api/blog/upload`, formData, {
               headers: {
                 'Content-Type': 'multipart/form-data',
                 Authorization: userData.token,
@@ -289,7 +290,7 @@ export default function Publish() {
       return;
     }
     axios
-      .post(`${process.env.baseUrl}/api/blog`, formData, {
+      .post(`${API_BASE_URL}/api/blog`, formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
           Authorization: userData.token,
@@ -350,7 +351,7 @@ export default function Publish() {
       return;
     }
     axios
-      .post(`${process.env.baseUrl}/api/blog`, formData, {
+      .post(`${API_BASE_URL}/api/blog`, formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
           Authorization: userData.token,

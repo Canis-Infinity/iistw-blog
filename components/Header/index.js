@@ -1,4 +1,5 @@
 'use client';
+import { API_BASE_URL } from '@/lib/config';
 import { useState, useEffect, useRef, useCallback } from 'react';
 import { useDebouncedCallback } from 'use-debounce';
 import { usePathname, useRouter } from 'next/navigation';
@@ -50,7 +51,7 @@ export default function Header() {
   const handleFetchNoti = useCallback(() => {
     if (!userData?.token) return;
     axios
-      .get(`${process.env.baseUrl}/api/blog/noti?type=count`, {
+      .get(`${API_BASE_URL}/api/blog/noti?type=count`, {
         headers: {
           Authorization: userData.token,
         },

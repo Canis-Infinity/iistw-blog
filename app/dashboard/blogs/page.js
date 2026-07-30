@@ -1,4 +1,5 @@
 'use client';
+import { API_BASE_URL } from '@/lib/config';
 import { useState, useEffect, useRef, useCallback } from 'react';
 import { useTheme } from 'next-themes';
 import { useRouter, useSearchParams } from 'next/navigation';
@@ -102,7 +103,7 @@ export default function Blogs() {
     if (!userData.token) return;
     setIsLoading(true);
     axios
-      .get(`${process.env.baseUrl}/api/blog/${activeTab}?page=${page}`, {
+      .get(`${API_BASE_URL}/api/blog/${activeTab}?page=${page}`, {
         headers: {
           Authorization: userData.token,
         },
@@ -138,7 +139,7 @@ export default function Blogs() {
   const handleDelete = (articleId) => {
     deleteToast.current = toast.loading('部落格刪除中', {...defaultProps});
     axios
-      .delete(`${process.env.baseUrl}/api/blog/${articleId}`, {
+      .delete(`${API_BASE_URL}/api/blog/${articleId}`, {
         headers: {
           Authorization: userData.token,
         },
@@ -198,7 +199,7 @@ export default function Blogs() {
                               <div className={styles.thumbnail}>
                                 {loading && <Loading />}
                                 <Image
-                                  src={`${process.env.baseUrl}${article.cover}`}
+                                  src={`${API_BASE_URL}${article.cover}`}
                                   alt={article.title}
                                   width={200}
                                   height={150}

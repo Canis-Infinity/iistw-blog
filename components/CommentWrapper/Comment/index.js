@@ -1,4 +1,5 @@
 'use client';
+import { API_BASE_URL } from '@/lib/config';
 
 import { useRef } from 'react';
 import dynamic from 'next/dynamic';
@@ -45,7 +46,7 @@ export default function Comment({
   const handleDeleteComment = () => {
     deleteToast.current = toast.loading('留言刪除中', { ...defaultProps });
     axios
-      .delete(`${process.env.baseUrl}/api/blog/comment/${commentData._id}`, {
+      .delete(`${API_BASE_URL}/api/blog/comment/${commentData._id}`, {
         headers: { Authorization: userData.token },
       })
       .then((res) => {
@@ -72,7 +73,7 @@ export default function Comment({
       <div className={styles.user}>
         <div className={styles.avatar}>
           <Image
-            src={`${process.env.baseUrl}${commentData.user.avatar}`}
+            src={`${API_BASE_URL}${commentData.user.avatar}`}
             alt={commentData.user.nickname}
             width={80}
             height={80}

@@ -1,6 +1,7 @@
+import { API_BASE_URL } from '@/lib/config';
 export default async function sitemap() {
   const blogBaseUrl = 'https://blog.iistw.com';
-  const apiBaseUrl = process.env.baseUrl || process.env.NEXT_PUBLIC_API_BASE_URL || 'https://api.iistw.com';
+  const apiBaseUrl = API_BASE_URL;
 
   const getAllPosts = await fetch(`${apiBaseUrl}/api/blog`);
 

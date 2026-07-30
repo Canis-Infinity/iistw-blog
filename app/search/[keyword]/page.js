@@ -1,4 +1,5 @@
 'use client';
+import { API_BASE_URL } from '@/lib/config';
 import { use, useState, useEffect } from 'react';
 import ArticleWrapper from '@/components/ArticleWrapper';
 import Article from '@/components/ArticleWrapper/Article';
@@ -16,7 +17,7 @@ export default function Search({ params }) {
 
   useEffect(() => {
     axios
-      .get(`${process.env.baseUrl}/api/blog/search/${keyword}`)
+      .get(`${API_BASE_URL}/api/blog/search/${keyword}`)
       .then((res) => {
         const { message, data } = res.data;
         if (res.status === 200) {

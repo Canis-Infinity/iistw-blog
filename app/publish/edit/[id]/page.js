@@ -1,4 +1,5 @@
 'use client';
+import { API_BASE_URL } from '@/lib/config';
 import { useState, useEffect, useRef, useCallback, use } from 'react';
 import { createPortal } from 'react-dom';
 import { useTheme } from 'next-themes';
@@ -151,7 +152,7 @@ export default function Publish({ params }) {
           const formData = new FormData();
           formData.append('file', file);
           axios
-            .post(`${process.env.baseUrl}/api/blog/upload`, formData, {
+            .post(`${API_BASE_URL}/api/blog/upload`, formData, {
               headers: {
                 'Content-Type': 'multipart/form-data',
                 Authorization: userData.token,
@@ -245,7 +246,7 @@ export default function Publish({ params }) {
 
   const handleFetch = useCallback(() => {
     axios
-      .get(`${process.env.baseUrl}/api/blog/${id}`)
+      .get(`${API_BASE_URL}/api/blog/${id}`)
       .then((res) => {
         // console.log(res)
         const { message, data } = res.data;
@@ -327,7 +328,7 @@ export default function Publish({ params }) {
       return;
     }
     axios
-      .patch(`${process.env.baseUrl}/api/blog/${id}`, formData, {
+      .patch(`${API_BASE_URL}/api/blog/${id}`, formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
           Authorization: userData.token,
@@ -391,7 +392,7 @@ export default function Publish({ params }) {
       return;
     }
     axios
-      .patch(`${process.env.baseUrl}/api/blog/${id}`, formData, {
+      .patch(`${API_BASE_URL}/api/blog/${id}`, formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
           Authorization: userData.token,
@@ -514,7 +515,7 @@ export default function Publish({ params }) {
               name="cover"
               id="cover"
               cover={cover}
-              original={`${process.env.baseUrl}${oldCover}`}
+              original={`${API_BASE_URL}${oldCover}`}
               upload={handleCoverUpload}
               coverRef={coverRef}
             />

@@ -1,4 +1,5 @@
 'use client';
+import { API_BASE_URL } from '@/lib/config';
 import { useState, useEffect } from 'react';
 import ArticleWrapper from '@/components/ArticleWrapper';
 import Article from '@/components/ArticleWrapper/Article';
@@ -15,7 +16,7 @@ export default function Home() {
 
   useEffect(() => {
     axios
-      .get(`${process.env.baseUrl}/api/blog`)
+      .get(`${API_BASE_URL}/api/blog`)
       .then((res) => {
         const { message, data } = res.data;
         if (res.status === 200) {

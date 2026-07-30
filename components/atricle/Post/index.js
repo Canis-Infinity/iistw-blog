@@ -1,4 +1,5 @@
 'use client';
+import { API_BASE_URL } from '@/lib/config';
 
 import { useEffect, useState } from 'react';
 import dynamic from 'next/dynamic';
@@ -48,7 +49,7 @@ export default function Post({ articleId, data, theme }) {
     const formData = new FormData();
     formData.append('id', articleId);
     axios
-      .post(`${process.env.baseUrl}/api/blog/views`, formData)
+      .post(`${API_BASE_URL}/api/blog/views`, formData)
       .catch(console.log);
   }, [articleId, data?.isDraft]);
 
@@ -62,8 +63,8 @@ export default function Post({ articleId, data, theme }) {
         <Image
           src={
             data.cover
-              ? `${process.env.baseUrl}${data.cover}`
-              : `${process.env.baseUrl}/blogs/image.png`
+              ? `${API_BASE_URL}${data.cover}`
+              : `${API_BASE_URL}/blogs/image.png`
           }
           alt="cover"
           width={960}
