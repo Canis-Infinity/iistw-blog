@@ -2,7 +2,7 @@ version: "3.3"
 
 services:
   blog:
-    image: node:20-alpine
+    image: node:24-alpine
     container_name: iistw-blog
     working_dir: /app
     environment:
