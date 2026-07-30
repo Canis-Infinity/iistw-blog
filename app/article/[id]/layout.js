@@ -1,5 +1,5 @@
 import { API_BASE_URL } from '@/lib/config';
-import axios from 'axios';
+import { getApiData } from '@/lib/getApiData';
 
 export async function generateMetadata({ params }, parent) {
   const { id } = await params;
@@ -8,9 +8,8 @@ export async function generateMetadata({ params }, parent) {
   let cover = null;
   let intro = null;
 
-  const res = await axios.get(`${API_BASE_URL}/api/blog/${id}?type=metadata`);
-  const { message, data } = res.data;
-  if (res.status === 200) {
+  const { data } = await getApiData(`/api/blog/${id}?type=metadata`, { data: null });
+  if (data) {
     title = data.title;
     cover = data.cover;
     intro = data.intro;

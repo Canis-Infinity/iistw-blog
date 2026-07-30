@@ -1,7 +1,6 @@
-import { API_BASE_URL } from '@/lib/config';
 import NoPost from '@/components/atricle/NoPost';
 import Wrapper from '@/components/atricle/Wrapper';
-import axios from 'axios';
+import { getApiData } from '@/lib/getApiData';
 
 export default async function Article({ params }) {
   const { id } = await params;
@@ -10,9 +9,7 @@ export default async function Article({ params }) {
     return <NoPost />;
   }
 
-  const res = await axios.get(`${API_BASE_URL}/api/blog/${id}`);
-
-  const { message, data } = res.data;
+  const { data } = await getApiData(`/api/blog/${id}`, { data: null });
 
   if (!data || Object.keys(data).length === 0) {
     return <NoPost />;
