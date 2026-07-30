@@ -18,7 +18,7 @@ export default function Register() {
   const { theme } = useTheme();
 
   const defaultProps = {
-    position: toast.POSITION.TOP_CENTER,
+    position: 'top-center',
     autoClose: 3000,
     hideProgressBar: false,
     closeOnClick: true,

@@ -1,5 +1,5 @@
 'use client';
-import { useState, useEffect } from 'react';
+import { use, useState, useEffect } from 'react';
 import ArticleWrapper from '@/components/ArticleWrapper';
 import Article from '@/components/ArticleWrapper/Article';
 import Skeleton from '@/components/ArticleWrapper/Skeleton';
@@ -9,7 +9,7 @@ import styles from './index.module.css';
 import axios from 'axios';
 
 export default function Search({ params }) {
-  const { keyword } = params;
+  const { keyword } = use(params);
 
   const [isLoading, setIsLoading] = useState(true);
   const [articles, setArticles] = useState([]);

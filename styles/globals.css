@@ -56,8 +56,8 @@ body {
 }
 
 [data-slide-top] {
-  -webkit-animation: slide-top 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
-  animation: slide-top 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+  -webkit-animation: slide-top 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+  animation: slide-top 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
 }
 
 @keyframes slide-top {
@@ -169,11 +169,11 @@ a.link {
   text-decoration: underline;
 }
 
-[data-theme="light"] a.link {
+[data-theme='light'] a.link {
   color: var(--theme-primary);
 }
 
-[data-theme="dark"] a.link {
+[data-theme='dark'] a.link {
   color: var(--theme-secondary);
 }
 
@@ -204,7 +204,7 @@ details .detailContent {
 }
 
 blockquote {
-  padding:17px 1rem 1px 1rem !important;
+  padding: 17px 1rem 1px 1rem !important;
   border-left: 0.5rem solid var(--theme-primary) !important;
   background-color: var(--background-color2) !important;
   color: var(--font-color) !important;
@@ -362,19 +362,19 @@ kbd {
   transition: all 0.2s linear;
 }
 
-[data-theme="light"] .md-editor-preview .code-tabs input:checked+label {
+[data-theme='light'] .md-editor-preview .code-tabs input:checked + label {
   color: var(--theme-primary) !important;
 }
 
-[data-theme="dark"] .md-editor-preview .code-tabs input:checked+label {
+[data-theme='dark'] .md-editor-preview .code-tabs input:checked + label {
   color: var(--theme-secondary) !important;
 }
 
-[data-theme="light"] .md-editor a:not(.embedCard) {
+[data-theme='light'] .md-editor a:not(.embedCard) {
   color: var(--theme-primary) !important;
 }
 
-[data-theme="dark"] .md-editor a:not(.embedCard) {
+[data-theme='dark'] .md-editor a:not(.embedCard) {
   color: var(--theme-secondary) !important;
 }
 
@@ -399,9 +399,9 @@ kbd {
   border-left: 1.5px solid var(--font-color) !important;
 }
 
-.md-editor-toolbar-item[title="mark"],
-.md-editor-toolbar-item[title="emoji"],
-.md-editor-toolbar-item[title="Export as PDF"] {
+.md-editor-toolbar-item[title='mark'],
+.md-editor-toolbar-item[title='emoji'],
+.md-editor-toolbar-item[title='Export as PDF'] {
   min-width: 2rem;
   height: 24px;
   display: flex !important;
@@ -410,9 +410,9 @@ kbd {
   align-items: center;
 }
 
-.md-editor-toolbar-item[title="mark"] svg,
-.md-editor-toolbar-item[title="emoji"] svg,
-.md-editor-toolbar-item[title="Export as PDF"] svg {
+.md-editor-toolbar-item[title='mark'] svg,
+.md-editor-toolbar-item[title='emoji'] svg,
+.md-editor-toolbar-item[title='Export as PDF'] svg {
   /* height: 24px; */
   font-size: 1rem;
   line-height: 1;
@@ -635,11 +635,11 @@ kbd {
   padding: 0 5em;
 }
 
-[data-theme="dark"] .highlighted-line {
+[data-theme='dark'] .highlighted-line {
   background-color: var(--gray-10);
 }
 
-[data-theme="light"] .highlighted-line {
+[data-theme='light'] .highlighted-line {
   background-color: var(--border);
 }
 

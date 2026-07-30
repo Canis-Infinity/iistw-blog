@@ -13,8 +13,8 @@ export const metadata = {
   },
 };
 
-export default function Layout({ children }) {
-  const user = getUser();
+export default async function Layout({ children }) {
+  const user = await getUser();
   const role = user?.role || 'guest';
 
   if (!['admin'].includes(role)) {

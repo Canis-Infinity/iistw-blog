@@ -61,12 +61,10 @@ export default function Header() {
           setNotiCount(data);
         } else {
           setNotiCount(0);
-          console.log(message)
         }
       })
       .catch((error) => {
         setNotiCount(0);
-        console.log(error);
       });
   }, [userData]);
 
@@ -77,7 +75,7 @@ export default function Header() {
   }, [pathname, handleFetchNoti]);
 
   const defaultProps = {
-    position: toast.POSITION.TOP_CENTER,
+    position: 'top-center',
     autoClose: 3000,
     hideProgressBar: false,
     closeOnClick: true,

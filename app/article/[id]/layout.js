@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 export async function generateMetadata({ params }, parent) {
-  const { id } = params;
+  const { id } = await params;
 
   let title = null;
   let cover = null;

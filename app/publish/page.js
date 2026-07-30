@@ -9,7 +9,6 @@ import ZH_TW from '@vavt/cm-extension/dist/locale/zh-TW';
 import { Emoji, Mark, ExportPDF } from '@vavt/rt-extension';
 import MarkExtension from 'markdown-it-mark';
 import markdownItImplicitFigures from 'markdown-it-implicit-figures';
-import markdownItScrollTable from 'markdown-it-scrolltable';
 import markdownItFootnote from 'markdown-it-footnote';
 import markdownItToc from 'markdown-it-table-of-contents';
 import markdwonItAnchor from 'markdown-it-anchor';
@@ -53,21 +52,20 @@ config({
     },
   },
   markdownItConfig(md) {
-    md.use(MarkExtension)
-      .use(hightlightLines)
-      .use(markdownItImplicitFigures, {
-        figcaption: true,
-        keepAlt: true,
-        lazyLoading: true,
-      })
-      .use(markdownItScrollTable)
-      .use(markdownItFootnote)
-      .use(markdownItToc, {
-        includeLevel: [1, 2, 3],
-        markerPattern: /^\[toc\]/im,
-      })
-      // .use(markdownItAttrs)
+    md.use(MarkExtension).use(hightlightLines).use(markdownItImplicitFigures, {
+      figcaption: true,
+      keepAlt: true,
+      lazyLoading: true,
+    });
+
+    if (typeof window !== 'undefined') {
+      const scrollTable = require('markdown-it-scrolltable');
+      md.use(scrollTable);
+    }
+
+    md.use(markdownItFootnote)
       .use(markdwonItAnchor, {})
+      .use(markdownItToc, { includeLevel: [1, 2, 3] })
       .use(markdownItAbbr)
       .use(markdownItNamedCodeBlocks)
       .use(markdownItKbd);
@@ -133,7 +131,7 @@ export default function Publish() {
   }, []);
 
   const defaultProps = {
-    position: toast.POSITION.TOP_CENTER,
+    position: 'top-center',
     autoClose: 3000,
     hideProgressBar: false,
     closeOnClick: true,
@@ -500,7 +498,7 @@ export default function Publish() {
               {mounted && (
                 <MdEditor
                   ref={editorRef}
-                  modelValue={text}
+                  value={text}
                   onChange={setText}
                   language="zh-TW"
                   theme={theme}
@@ -520,7 +518,7 @@ export default function Publish() {
                     />,
                     <ExportPDF
                       key="ExportPDF"
-                      modelValue={text}
+                      value={text}
                       height="700px"
                       trigger={<BsFillFileEarmarkPdfFill />}
                     />,
@@ -633,16 +631,8 @@ export default function Publish() {
               />
             </div>
             <div className={formStyles.actions}>
-              <Button
-                color="primary"
-                content="發佈"
-                onClick={handlePublish}
-              />
-              <Button
-                color="secondary4"
-                content="草稿"
-                onClick={handleDraft}
-              />
+              <Button color="primary" content="發佈" onClick={handlePublish} />
+              <Button color="secondary4" content="草稿" onClick={handleDraft} />
               <Button
                 color="secondary2"
                 content="重設"

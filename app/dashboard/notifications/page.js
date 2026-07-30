@@ -37,7 +37,7 @@ export default function Notifications() {
   }, []);
 
   const defaultProps = {
-    position: toast.POSITION.TOP_CENTER,
+    position: 'top-center',
     autoClose: 3000,
     hideProgressBar: false,
     closeOnClick: true,
@@ -131,7 +131,6 @@ export default function Notifications() {
           toast.success(message, {...defaultProps});
           if (page === 1) {
             handleFetchNoti();
-            // fetchNoti(); // 作弊
           } else {
             setPage(1);
           }

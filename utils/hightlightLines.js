@@ -70,15 +70,12 @@ export default function hightlightLines(md) {
     });
     let highlightedCode = '';
     codeSplits.forEach(function (split, index) {
-      console.log(index, split);
       if (split.highlighted) {
         highlightedCode += split.code;
       } else {
         highlightedCode += split.code + '\n';
       }
     });
-
-    console.log('highlightedCode:', highlightedCode);
 
     if (highlightedCode.startsWith('<pre')) {
       return highlightedCode;

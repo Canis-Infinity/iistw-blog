@@ -1,5 +1,5 @@
 'use client';
-import { useState, useEffect, useRef, useCallback } from 'react';
+import { useState, useEffect, useRef, useCallback, use } from 'react';
 import { createPortal } from 'react-dom';
 import { useTheme } from 'next-themes';
 import { useRouter } from 'next/navigation';
@@ -9,10 +9,9 @@ import ZH_TW from '@vavt/cm-extension/dist/locale/zh-TW';
 import { Emoji, Mark, ExportPDF } from '@vavt/rt-extension';
 import MarkExtension from 'markdown-it-mark';
 import markdownItImplicitFigures from 'markdown-it-implicit-figures';
-import markdownItScrollTable from 'markdown-it-scrolltable';
 import markdownItFootnote from 'markdown-it-footnote';
 import markdownItToc from 'markdown-it-table-of-contents';
-import markdwonItAnchor from 'markdown-it-anchor';
+import markdownItAnchor from 'markdown-it-anchor';
 import markdownItAbbr from 'markdown-it-abbr';
 import markdownItNamedCodeBlocks from 'markdown-it-named-code-blocks';
 import markdownItKbd from '@gerhobbelt/markdown-it-kbd';
@@ -53,20 +52,22 @@ config({
     },
   },
   markdownItConfig(md) {
-    md.use(MarkExtension)
-    .use(hightlightLines)
-      .use(markdownItImplicitFigures, {
-        figcaption: true,
-        keepAlt: true,
-        lazyLoading: true,
-      })
-      .use(markdownItScrollTable)
-      .use(markdownItFootnote)
+    md.use(MarkExtension).use(hightlightLines).use(markdownItImplicitFigures, {
+      figcaption: true,
+      keepAlt: true,
+      lazyLoading: true,
+    });
+
+    if (typeof window !== 'undefined') {
+      const scrollTable = require('markdown-it-scrolltable');
+      md.use(scrollTable);
+    }
+
+    md.use(markdownItFootnote)
+      .use(markdownItAnchor, {})
       .use(markdownItToc, {
         includeLevel: [1, 2, 3],
-        markerPattern: /^\[toc\]/im,
       })
-      .use(markdwonItAnchor, {})
       .use(markdownItAbbr)
       .use(markdownItNamedCodeBlocks)
       .use(markdownItKbd);
@@ -111,7 +112,7 @@ const toolbar = [
 ];
 
 export default function Publish({ params }) {
-  const { id } = params;
+  const { id } = use(params);
   const router = useRouter();
 
   const [userData, setUserData] = useState({});
@@ -132,7 +133,7 @@ export default function Publish({ params }) {
   }, []);
 
   const defaultProps = {
-    position: toast.POSITION.TOP_CENTER,
+    position: 'top-center',
     autoClose: 3000,
     hideProgressBar: false,
     closeOnClick: true,
@@ -249,10 +250,19 @@ export default function Publish({ params }) {
         // console.log(res)
         const { message, data } = res.data;
         if (res.status === 200) {
-          const { title, intro, body, tags, cover, isDraft, postDirections } = data;
+          const { title, intro, body, tags, cover, isDraft, postDirections } =
+            data;
           setOldCover(cover);
           setText(body);
-          setArticleData({ title, intro, body, tags, cover, isDraft, postDirections });
+          setArticleData({
+            title,
+            intro,
+            body,
+            tags,
+            cover,
+            isDraft,
+            postDirections,
+          });
           const temp = JSON.parse(tags);
           temp.forEach((item) => {
             tagifyRef.current.addTags(item);
@@ -536,7 +546,7 @@ export default function Publish({ params }) {
               {mounted && (
                 <MdEditor
                   ref={editorRef}
-                  modelValue={text || articleData.body}
+                  value={text || articleData.body}
                   onChange={setText}
                   language="zh-TW"
                   theme={theme}
@@ -556,7 +566,7 @@ export default function Publish({ params }) {
                     />,
                     <ExportPDF
                       key="ExportPDF"
-                      modelValue={text}
+                      value={text}
                       height="700px"
                       trigger={<BsFillFileEarmarkPdfFill />}
                     />,
