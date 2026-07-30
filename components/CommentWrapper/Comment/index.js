@@ -78,6 +78,7 @@ export default function Comment({
             width={80}
             height={80}
             priority
+            unoptimized
           />
         </div>
         <span className={styles.nickname}>{commentData.user.nickname}</span>

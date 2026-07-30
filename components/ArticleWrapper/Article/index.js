@@ -75,6 +75,7 @@ export default function Article({
           height={540}
           onLoad={handleImageLoad}
           priority
+          unoptimized
         />
       </div>
     </Link>

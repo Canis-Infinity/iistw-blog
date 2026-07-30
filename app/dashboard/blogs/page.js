@@ -204,6 +204,7 @@ export default function Blogs() {
                                   width={200}
                                   height={150}
                                   onLoad={handleImageLoad}
+                                  unoptimized
                                 />
                               </div>
                             </div>

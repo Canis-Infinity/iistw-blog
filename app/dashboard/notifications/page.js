@@ -190,6 +190,7 @@ export default function Notifications() {
                             alt={noti.from}
                             width={80}
                             height={80}
+                            unoptimized
                           />
                         </div>
                         <div className={styles.content}>

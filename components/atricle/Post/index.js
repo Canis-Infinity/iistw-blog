@@ -72,6 +72,7 @@ export default function Post({ articleId, data, theme }) {
           style={{ width: '100%', height: '100%', objectFit: 'cover' }}
           onLoad={handleImageLoad}
           priority
+          unoptimized
         />
       </div>
 
