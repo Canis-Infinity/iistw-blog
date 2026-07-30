@@ -1,7 +1,8 @@
 export default async function sitemap() {
   const blogBaseUrl = 'https://blog.iistw.com';
+  const apiBaseUrl = process.env.baseUrl || process.env.NEXT_PUBLIC_API_BASE_URL || 'https://api.iistw.com';
 
-  const getAllPosts = await fetch(`${process.env.baseUrl}/api/blog`);
+  const getAllPosts = await fetch(`${apiBaseUrl}/api/blog`);
 
   const posts = await getAllPosts.json();
 
